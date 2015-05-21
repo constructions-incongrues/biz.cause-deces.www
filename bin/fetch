@@ -1,0 +1,42 @@
+#!/usr/bin/env php
+<?php
+// Imports
+use Goutte\Client;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+// Setup autoloading
+require_once(__DIR__.'/../vendor/autoload.php');
+
+// Setup logging
+$log = new Logger('fetch');
+$log->pushHandler(new StreamHandler('php://stdout'));
+
+// Fetch data from Kimonolabs
+$url = "https://www.kimonolabs.com/api/251w9qd2?apikey=4c4c859499f8a85a4061644ea7e12139";
+$log->addInfo('Fetching ads', array('url' => $url));
+$response = file_get_contents($url);
+$results = json_decode($response, true);
+
+// Fetch images url from leboncoin.fr
+$log->addInfo('Fetching ads pictures URL', array('count' => count($results['results']['collection1'])));
+for ($i = 0; $i < count($results['results']['collection1']); $i++) {
+    $ad = $results['results']['collection1'][$i];
+    $client = new Client();
+    $crawler = $client->request('GET', $ad['title']['href']);
+    $log->addDebug(
+        'Scraping ad',
+        array('num' => $i + 1, 'total' => count($results['results']['collection1']), 'url' => $ad['title']['href'])
+    );
+    $crawler->filter('#image')->each(function($node) use ($i, $log, $ad, &$results) {
+        $matches = array();
+        $pattern = '#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#';
+        preg_match($pattern, $node->attr('style'), $matches);
+        $results['results']['collection1'][$i]['picture']['src'] = $matches[0];
+        $log->addDebug('Found ad picture', array('ad' => $ad['title']['href'], 'picture' => $matches[0]));
+    });
+}
+
+$pathCache = __DIR__.'/../src/public/data.json';
+$log->addInfo('Caching data', array('ads' => count($results['results']['collection1']), 'path' => $pathCache));
+file_put_contents($pathCache, json_encode($results));

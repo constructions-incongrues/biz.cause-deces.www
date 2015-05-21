@@ -1,0 +1,16 @@
+# editors
+*~
+*.swp
+*.bak
+
+# vagrant
+/.vagrant
+
+# dist
+*-dist
+
+# composer
+/vendor
+
+# cause-deces
+/src/public/data.json
