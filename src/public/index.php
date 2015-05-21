@@ -28,7 +28,7 @@ img { margin-top:0.3em; padding:0; width:250px; }
     <?php endif ?>
 <?php endforeach ?>
 </div>
-    <p>Un projet de <a href="http://www.marionbalac.com">Marion Balac</a> développé par <a href="http://www.constructions-incongrues.net">Constructions Incongrues</a> et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a> Code <a href="https://github.com/constructions-incongrues/biz.cause-deces.www">distribué</a> sous licence <a href="http://www.gnu.org/licenses/agpl-3.0.html">AGPLv3</a>- 2015</p>
+    <p>Un projet de <a href="http://www.marionbalac.com">Marion Balac</a> développé par <a href="http://www.constructions-incongrues.net">Constructions Incongrues</a> et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a> - Code <a href="https://github.com/constructions-incongrues/biz.cause-deces.www">distribué</a> sous licence <a href="http://www.gnu.org/licenses/agpl-3.0.html">AGPLv3</a>- 2015</p>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
 </body>
 
