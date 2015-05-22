@@ -8,12 +8,15 @@ use Monolog\Handler\StreamHandler;
 // Setup autoloading
 require_once(__DIR__.'/../vendor/autoload.php');
 
+// Get configuration
+require_once(__DIR__.'/../src/config.php');
+
 // Setup logging
 $log = new Logger('fetch');
 $log->pushHandler(new StreamHandler('php://stdout'));
 
 // Fetch data from Kimonolabs
-$url = "https://www.kimonolabs.com/api/251w9qd2?apikey=4c4c859499f8a85a4061644ea7e12139";
+$url = $config['causeUrlApi'];
 $log->addInfo('Fetching ads', array('url' => $url));
 $response = file_get_contents($url);
 $results = json_decode($response, true);
@@ -37,6 +40,6 @@ for ($i = 0; $i < count($results['results']['collection1']); $i++) {
     });
 }
 
-$pathCache = __DIR__.'/../src/public/data.json';
+$pathCache = __DIR__.'/../src/public/'.$config['causeDataFile'];
 $log->addInfo('Caching data', array('ads' => count($results['results']['collection1']), 'path' => $pathCache));
 file_put_contents($pathCache, json_encode($results));

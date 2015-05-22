@@ -25,5 +25,6 @@ vagrant up
 Déploiement
 ===========
 ```bash
-ant deploy -Dprofile=jeroboam -Dassets.version=`date +%s` -Drsync.options=--delete-after
+ant deploy -Dprofile=jeroboam-deces -Dassets.version=`date +%s` -Drsync.options=--delete-after
+ant deploy -Dprofile=jeroboam-divorce -Dassets.version=`date +%s` -Drsync.options=--delete-after
 ```

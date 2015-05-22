@@ -1,21 +1,25 @@
 <?php
-$data = json_decode(file_get_contents(__DIR__.'/data.json'), true);
+// Fetch configuration
+require_once(__DIR__.'/../config.php');
+
+// Load ads data
+$data = json_decode(file_get_contents(__DIR__.'/'.$config['causeDataFile']), true);
 ?>
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
-    <title>cause-deces.biz</title>
+    <title><?php echo $config['causeTitle'] ?></title>
     <meta charset="utf-8" />
     <link rel="icon" href="favicon.gif" type="image/gif" />
     <style>
 body { margin-top:2em; margin-left:2em; font-family:Futura, sans-serif; }
 img { margin-top:0.3em; padding:0; width:250px; }
     </style>
-    <meta property="og:title" content="cause-deces.biz" />
+    <meta property="og:title" content="<?php echo $config['causeTitle'] ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Les souvenirs passent, les objets restent" />
-    <meta property="og:url" content="http://www.cause-deces.biz" />
-    <meta property="og:image" content="http://www.cause-deces.biz/ogp.png" />
+    <meta property="og:description" content="<?php echo $config['causeDescription'] ?>" />
+    <meta property="og:url" content="<?php echo $config['causeUrlRoot'] ?>" />
+    <meta property="og:image" content="<?php echo $config['causeUrlRoot'] ?>/ogp.png" />
 </head>
 
 <body>

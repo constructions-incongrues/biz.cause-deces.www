@@ -10,6 +10,10 @@ Vagrant.configure(2) do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
+  # The hostname the machine should have. Defaults to nil.
+  # If nil, Vagrant won't manage the hostname. If set to a string, the hostname will be set on boot.
+  config.vm.hostname = "cause-deces.vagrant.dev"
+
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "pixative/debian-wheezy-64"
@@ -21,5 +25,4 @@ Vagrant.configure(2) do |config|
 
   # @see https://github.com/phinze/landrush
   config.landrush.enabled = true
-  config.vm.hostname = "cause-deces.vagrant.dev"
 end

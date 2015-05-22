@@ -13,4 +13,5 @@
 /vendor
 
 # cause-deces
-/src/public/data.json
+/src/config.php
+/src/public/data-*.json
