@@ -40,6 +40,6 @@ for ($i = 0; $i < count($results['results']['collection1']); $i++) {
     });
 }
 
-$pathCache = __DIR__.'/../src/public/'.$config['causeDataFile'];
+$pathCache = __DIR__.'/../src/public/'.$config['causeTitle'].'/data.json';
 $log->addInfo('Caching data', array('ads' => count($results['results']['collection1']), 'path' => $pathCache));
 file_put_contents($pathCache, json_encode($results));

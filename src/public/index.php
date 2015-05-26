@@ -3,14 +3,14 @@
 require_once(__DIR__.'/../config.php');
 
 // Load ads data
-$data = json_decode(file_get_contents(__DIR__.'/'.$config['causeDataFile']), true);
+$data = json_decode(file_get_contents(__DIR__.'/'.$config['causeTitle'].'/data.json'), true);
 ?>
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <title><?php echo $config['causeTitle'] ?></title>
     <meta charset="utf-8" />
-    <link rel="icon" href="favicon.gif" type="image/gif" />
+    <link rel="icon" href="<?php echo $config['causeTitle'] ?>/favicon.gif" type="image/gif" />
     <style>
 body { margin-top:2em; margin-left:2em; font-family:Futura, sans-serif; }
 img { margin-top:0.3em; padding:0; width:250px; }
