@@ -23,7 +23,7 @@ img { margin-top:0.3em; padding:0; width:250px; }
 </head>
 
 <body>
-<div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": 20, "itemSelector": ".item" }'>
+<div id="container">
 <?php foreach ($data['results']['collection1'] as $classified): ?>
     <?php if ($classified['picture']['src'] != '' && $classified['picture']['src'] != 'http://static.leboncoin.fr/img/trans-1px.gif'): ?>
     <div class="item">
@@ -33,7 +33,20 @@ img { margin-top:0.3em; padding:0; width:250px; }
 <?php endforeach ?>
 </div>
     <p>Un projet de <a href="http://www.marionbalac.com">Marion Balac</a> développé par <a href="http://www.constructions-incongrues.net">Constructions Incongrues</a> et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a> - Code <a href="https://github.com/constructions-incongrues/biz.cause-deces.www">distribué</a> sous licence <a href="http://www.gnu.org/licenses/agpl-3.0.html">AGPLv3</a> - 2015</p>
+    <script src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
+    <script>
+// @see http://masonry.desandro.com/appendix.html#imagesloaded
+var container = document.querySelector('#container');
+var msnry;
+// initialize Masonry after all images have loaded
+imagesLoaded(container, function() {
+    msnry = new Masonry(container, {
+        columnWidth: 20,
+        itemSelector: ".item"
+    });
+});
+    </script>
 </body>
 
 </html>
