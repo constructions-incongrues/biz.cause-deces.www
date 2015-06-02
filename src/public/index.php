@@ -19,7 +19,7 @@ img { margin-top:0.3em; padding:0; width:250px; }
     <meta property="og:type" content="website" />
     <meta property="og:description" content="<?php echo $config['causeDescription'] ?>" />
     <meta property="og:url" content="<?php echo $config['causeUrlRoot'] ?>" />
-    <meta property="og:image" content="<?php echo $config['causeUrlRoot'] ?>/ogp.png" />
+    <meta property="og:image" content="<?php echo $config['causeUrlRoot'] ?>/<?php echo $config['causeTitle'] ?>/ogp.png" />
 </head>
 
 <body>
