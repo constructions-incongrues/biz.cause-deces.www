@@ -1,0 +1,8 @@
+<?php
+$config = array(
+    'causeDescription'     => "@cause.description@",
+    'causeTitle'           => '@cause.title@',
+    'causeUrlRoot'         => '@cause.urlRoot@',
+    'parsehubApiKey'       => '@parsehub.apiKey@',
+    'parsehubProjectToken' => '@parsehub.projectToken@'
+);

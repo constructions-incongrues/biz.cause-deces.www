@@ -6,9 +6,10 @@
         }
     ],
     "require": {
-        "constructions-incongrues/ananas-build-toolkit": "0.25.*",
-        "fabpot/goutte": "2.0.*",
-        "monolog/monolog": "1.13.*"
+        "constructions-incongrues/ananas-build-toolkit": "0.31.*",
+        "monolog/monolog": "1.13.*",
+        "symfony/http-foundation": "^3.0",
+        "guzzlehttp/guzzle": "^6.1"
     },
     "scripts": {
         "post-install-cmd": "ant -f vendor/constructions-incongrues/ananas-build-toolkit/modules/toolkit/module.xml init -Dbasedir=$PWD",

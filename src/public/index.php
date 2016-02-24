@@ -24,10 +24,10 @@ img { margin-top:0.3em; padding:0; width:250px; }
 
 <body>
 <div id="container">
-<?php foreach ($data['results']['collection1'] as $classified): ?>
-    <?php if ($classified['picture']['src'] != '' && $classified['picture']['src'] != 'http://static.leboncoin.fr/img/trans-1px.gif'): ?>
+<?php foreach ($data['classifieds'] as $classified): ?>
+    <?php if (isset($classified['picture'])): ?>
     <div class="item">
-        <a href="<?php echo $classified['title']['href'] ?>" title="<?php echo $classified['title']['text'] ?>" target="_blank"><img src="<?php echo $classified['picture']['src']?>" /></a>
+        <a href="<?php echo $classified['href'] ?>" title="<?php echo $classified['title'] ?>" target="_blank"><img src="<?php echo $classified['picture'] ?>" /></a>
     </div>
     <?php endif ?>
 <?php endforeach ?>

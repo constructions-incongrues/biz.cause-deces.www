@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+require_once(__DIR__.'/../vendor/autoload.php');
+
+use GuzzleHttp\Client;
+
+// Fetch configuration
+require_once(__DIR__.'/../src/config.php');
+
+// Trigger run
+$client = new Client(['base_uri' => 'https://www.parsehub.com']);
+$response = $client->post(
+    sprintf('/api/v2/projects/%s/run', $config['parsehubProjectToken']),
+    ['query' => ['api_key' => $config['parsehubApiKey']]]
+);
+print_r(json_decode($response->getBody()->getContents(), true));
