@@ -13,7 +13,7 @@ $data = json_decode(file_get_contents(__DIR__.'/'.$config['causeTitle'].'/data.j
     <link rel="icon" href="<?php echo $config['causeTitle'] ?>/favicon.gif" type="image/gif" />
     <style>
 body { margin-top:2em; margin-left:2em; font-family:Futura, sans-serif; }
-img { margin-top:0.3em; padding:0; width:250px; }
+img { margin-top:0.3em; padding:0; width:104px; }
     </style>
     <meta property="og:title" content="<?php echo $config['causeTitle'] ?>" />
     <meta property="og:type" content="website" />
@@ -42,7 +42,7 @@ var msnry;
 // initialize Masonry after all images have loaded
 imagesLoaded(container, function() {
     msnry = new Masonry(container, {
-        columnWidth: 20,
+        columnWidth: 16,
         itemSelector: ".item"
     });
 });
