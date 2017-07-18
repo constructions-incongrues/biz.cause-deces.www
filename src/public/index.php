@@ -27,7 +27,9 @@ img { margin-top:0.3em; padding:0; width:104px; }
 <?php foreach ($data['classifieds'] as $classified): ?>
     <?php if (isset($classified['picture'])): ?>
     <div class="item">
-        <a href="<?php echo $classified['href'] ?>" title="<?php echo $classified['title'] ?>" target="_blank"><img src="<?php echo $classified['picture'] ?>" /></a>
+        <a href="<?php echo $classified['href'] ?>" title="<?php echo $classified['title'] ?>" target="_blank">
+            <img src="<?php echo $classified['picture'] ?>" onerror="this.parentNode.parentNode.remove();" />
+        </a>
     </div>
     <?php endif ?>
 <?php endforeach ?>
